@@ -1,0 +1,16 @@
+#Create app
+npx create-react-app text-utils-app
+cd my-app
+npm start
+
+#add Bootstrap
+#go to getbootstrap website and get CDN css/js
+>public>index.html
+
+#create Components(Navbar)
+>src>components>Navbar.js
+#import components in App.js
+import Navbar from "./components/Navbar";
+<Navbar/>#Simple
+<Navbar NavTitle="TextUtils"/>#With Props
+
