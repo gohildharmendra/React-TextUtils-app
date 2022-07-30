@@ -34,23 +34,23 @@ export default function TextForm(props) {
     }
     return (
     <>
-        <div className="card my-2">
+        <div className={`card my-2 border border-1 bg-${props.mode==='light'?'':'secondary'} text-${props.mode==='light'?'dark':'light'}`}>
         <div className="card-header">
         {props.heading}
         </div>
-        <div className="card-body">
-            <textarea className="form-control" value={text} onChange={handleOnchange} id="txtBox" rows="8"></textarea>
+        <div className="card-body border border-1">
+            <textarea className={`form-control bg-${props.mode==='light'?'':'secondary'}`} value={text} onChange={handleOnchange} id="txtBox" rows="8"></textarea>
         </div>
         <div className="card-footer text-muted">
-        <button onClick={handleUpClick} className='btn btn-outline-primary mx-1'>Covert To UpperCase</button>
-        <button onClick={handleLowerClick} className='btn btn-outline-success mx-1'>Covert To lowerCase</button>
-        <button onClick={handleTCaseClick} className='btn btn-outline-info mx-1'>Covert To TitleCase</button>
-        <button onClick={handleCopyClick} className='btn btn-outline-dark mx-1'>Copy Text</button>
-        <button onClick={handleExtraSpeceClick} className='btn btn-outline-warning mx-1'>Remove Extra-Space</button>
-        <button onClick={handleClearClick} className='btn btn-outline-danger mx-1'>Clear Text</button>
+        <button onClick={handleUpClick} className='btn btn-primary mx-1'>Covert To UpperCase</button>
+        <button onClick={handleLowerClick} className='btn btn-success mx-1'>Covert To lowerCase</button>
+        <button onClick={handleTCaseClick} className='btn btn-info mx-1'>Covert To TitleCase</button>
+        <button onClick={handleCopyClick} className='btn btn-dark mx-1'>Copy Text</button>
+        <button onClick={handleExtraSpeceClick} className='btn btn-warning mx-1'>Remove Extra-Space</button>
+        <button onClick={handleClearClick} className='btn btn-danger mx-1'>Clear Text</button>
         </div>               
         </div>
-        <div className="card">
+        <div className={`card border border-1 bg-${props.mode==='light'?'':'secondary'} text-${props.mode==='light'?'dark':'light'}`}>
         <div className="card-header">
         <h5>Your Text Summary is:</h5>
         </div>
@@ -59,7 +59,7 @@ export default function TextForm(props) {
         <p className="card-title">Reading Time: <strong>{0.008*text.split(" ").length.toFixed(3)} Minutes</strong></p>
         <hr />
         <h3>Preview:</h3>   
-        <pre className="card-text">{text}</pre>
+        <pre className="card-text">{text.length>0?text:"Enter somthing in the textbox above to preview it here."}</pre>
         </div>
         <div className="card-footer text-muted">
             Gohil DB
