@@ -40,21 +40,21 @@ export default function TextForm(props) {
     }
     return (
     <>
-    <div className="container my-3">
-        <div className={`card my-2 border border-1 bg-${props.mode==='light'?'':'secondary'} text-${props.mode==='light'?'dark':'light'}`}>
+    <div className="container">
+        <div className={`card my-1 border border-1 bg-${props.mode==='light'?'':'secondary'} text-${props.mode==='light'?'dark':'light'}`}>
         <div className="card-header">
-        {props.heading}
+        <strong>{props.heading}</strong>
         </div>
         <div className="card-body border border-1">
-            <textarea className={`form-control bg-${props.mode==='light'?'':'secondary'}`} value={text} onChange={handleOnchange} id="txtBox" rows="8"></textarea>
+            <textarea className={`form-control bg-${props.mode==='light'?'':'secondary'} text-${props.mode==='light'?'':'light'}`} value={text} onChange={handleOnchange} id="txtBox" rows="8"></textarea>
         </div>
         <div className="card-footer text-muted">
-        <button onClick={handleUpClick} className='btn btn-primary mx-1'>Covert To UpperCase</button>
-        <button onClick={handleLowerClick} className='btn btn-success mx-1'>Covert To lowerCase</button>
-        <button onClick={handleTCaseClick} className='btn btn-info mx-1'>Covert To TitleCase</button>
-        <button onClick={handleCopyClick} className='btn btn-dark mx-1'>Copy Text</button>
-        <button onClick={handleExtraSpeceClick} className='btn btn-warning mx-1'>Remove Extra-Space</button>
-        <button onClick={handleClearClick} className='btn btn-danger mx-1'>Clear Text</button>
+        <button disabled={text.length===0} onClick={handleUpClick} className='btn btn-sm btn-primary mx-1 my-1'>Covert To UpperCase</button>
+        <button disabled={text.length===0} onClick={handleLowerClick} className='btn btn-sm btn-success mx-1 my-1'>Covert To lowerCase</button>
+        <button disabled={text.length===0} onClick={handleTCaseClick} className='btn btn-sm btn-info mx-1 my-1'>Covert To TitleCase</button>
+        <button disabled={text.length===0} onClick={handleExtraSpeceClick} className='btn btn-sm btn-warning mx-1 my-1'>Remove Extra-Space</button>
+        <button disabled={text.length===0} onClick={handleCopyClick} className='btn btn-sm btn-dark mx-1 my-1'>Copy Text</button>
+        <button disabled={text.length===0} onClick={handleClearClick} className='btn btn-sm btn-danger mx-1 my-1'>Clear Text</button>
         </div>               
         </div>
         <div className={`card border border-1 bg-${props.mode==='light'?'':'secondary'} text-${props.mode==='light'?'dark':'light'}`}>
@@ -62,11 +62,11 @@ export default function TextForm(props) {
         <h5>Your Text Summary is:</h5>
         </div>
         <div className="card-body">
-        <p className="card-title">Total Words: <strong>{text!==""?text.split(" ").length:'0'}</strong>, Total Characters: <strong>{text.length}</strong></p>
-        <p className="card-title">Reading Time: <strong>{0.008*text.split(" ").length.toFixed(3)} Minutes</strong></p>
+        <p className="card-title">Total Words: <strong>{text.split(" ").filter((element)=>{return element.length!==0}).length}</strong>, Total Characters: <strong>{text.length}</strong></p>
+        <p className="card-title">Reading Time: <strong>{0.008*text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes</strong></p>
         <hr />
         <h3>Preview:</h3>   
-        <pre className="card-text">{text.length>0?text:"Enter somthing in the textbox above to preview it here."}</pre>
+        <pre className="card-text">{text.length>0?text:" No Preview please Enter somthing in the textbox above to preview it here."}</pre>
         </div>
         <div className="card-footer text-muted">
             Gohil DB
