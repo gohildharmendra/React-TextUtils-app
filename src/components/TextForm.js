@@ -10,27 +10,33 @@ export default function TextForm(props) {
     const handleUpClick=()=>{
         let txtvalues = text.toUpperCase();
         setText(txtvalues);
+        props.showAlert("Text Conver to UPPER-CASE Successfully.","primary");
     }
     const handleLowerClick=()=>{
         let txtvalues = text.toLowerCase();
         setText(txtvalues);
+        props.showAlert("Text Conver To lower-case Successfully.","success");
     }
     const handleTCaseClick=()=>{
         let txtvalues = text.toLowerCase().replace(/\b\w/g, s => s.toUpperCase());
         setText(txtvalues);
+        props.showAlert("Text converded to TitleCase Successfully.","info");
     }
     const handleCopyClick=()=>{
         let txtvalues = document.getElementById('txtBox');
         txtvalues.select();
         navigator.clipboard.writeText(txtvalues.value);
+        props.showAlert("TextBox Text Copy Successfully.","dark");
     }
     const handleExtraSpeceClick=()=>{
         let newValues = text.split(/[ ]+/);
         setText(newValues.join(" "));
+        props.showAlert("Extra Spaces has been removed!","warning");
     }
     const handleClearClick=()=>{
         let txtvalues = '';
         setText(txtvalues);
+       props.showAlert("TextBox has been cleared!","danger");
     }
     return (
     <>
