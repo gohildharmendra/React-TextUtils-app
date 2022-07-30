@@ -61,7 +61,7 @@ export default function TextForm(props) {
         <h5>Your Text Summary is:</h5>
         </div>
         <div className="card-body">
-        <p className="card-title">Total Words: <strong>{text.split(" ").length}</strong>, Total Characters: <strong>{text.length}</strong></p>
+        <p className="card-title">Total Words: <strong>{text!==""?text.split(" ").length:'0'}</strong>, Total Characters: <strong>{text.length}</strong></p>
         <p className="card-title">Reading Time: <strong>{0.008*text.split(" ").length.toFixed(3)} Minutes</strong></p>
         <hr />
         <h3>Preview:</h3>   
