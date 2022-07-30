@@ -40,6 +40,7 @@ export default function TextForm(props) {
     }
     return (
     <>
+    <div className="container my-3">
         <div className={`card my-2 border border-1 bg-${props.mode==='light'?'':'secondary'} text-${props.mode==='light'?'dark':'light'}`}>
         <div className="card-header">
         {props.heading}
@@ -71,6 +72,7 @@ export default function TextForm(props) {
             Gohil DB
         </div>               
         </div>
+    </div>
     </>
     )
 }
